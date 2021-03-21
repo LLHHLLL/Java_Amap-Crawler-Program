@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>查询店铺</title>
+</head>
+<body>
+<form action="/getShopInfoInNationwide.do" method="post">
+    关键词：<input type="text" th:value="${keyword}" name="keyword"><br/>
+    <button>全国搜索</button>
+</form>
+</body>
+</html>

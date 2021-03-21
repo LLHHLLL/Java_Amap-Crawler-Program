@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spiderpoi.spider.dao.WebCrawlerDao">
+    <resultMap id="BaseResultMap_CityAndProvince" type="com.spiderpoi.spider.dto.CityProvinceDto">
+        <result column="province" jdbcType="VARCHAR" property="province" />
+        <result column="cities" jdbcType="VARCHAR" property="city" />
+    </resultMap>
+
+    <resultMap id="BaseResultMap_CityModel" type="com.spiderpoi.spider.dto.CityModel">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="province" jdbcType="VARCHAR" property="province" />
+        <result column="cities" jdbcType="VARCHAR" property="cities" />
+    </resultMap>
+
+    <select id="singleProvinceQuery" resultMap="BaseResultMap_CityAndProvince">
+        SELECT cities FROM city where province = #{province}
+    </select>
+
+    <select id="cycleProvinceQuery" resultType="com.spiderpoi.spider.dto.CityProvinceDto">
+        SELECT province FROM city
+    </select>
+
+    <select id="selectCityModelByProvince" resultMap="BaseResultMap_CityModel">
+        SELECT id,province,cities FROM city WHERE province = #{province}
+    </select>
+
+    <select id="selectProvinceByCityName" parameterType="string" resultType="java.lang.String">
+        SELECT province FROM city WHERE cities LIKE '%${cityName}%'
+    </select>
+
+    <select id="findAllCities" resultMap="BaseResultMap_CityModel">
+        SELECT id,province,cities FROM city
+    </select>
+
+</mapper>

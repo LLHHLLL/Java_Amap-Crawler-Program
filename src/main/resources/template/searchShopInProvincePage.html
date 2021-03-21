@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>查询店铺</title>
+</head>
+<body>
+    <form action="/getShopInfoInProvince.do" method="post">
+        关键词：<input type="text" th:value="${keywords}" name="keywords"><br/>
+        省份：<input type="text" th:value="${province}" name="province"><br/>
+        <button>查询</button>
+    </form>
+</body>
+</html>

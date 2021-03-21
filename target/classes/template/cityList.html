@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>城市列表</title>
+</head>
+<body>
+    <div>
+        <table border="2">
+            <tr>
+                <th>id</th>
+                <th>省份</th>
+                <th>城市</th>
+            </tr>
+            <tr th:each="city:${cityList}">
+                <td th:text="${city.id}"></td>
+                <td th:text="${city.province}"></td>
+                <td th:text="${city.cities}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
